@@ -58,7 +58,7 @@ class StateController(object):
 
     def search(self):
         changedMessages = Messages() # Collection of new, deleted and updated messages.
-        print("search(): reating empty collection of messages: %s"% changedMessages)
+        print("search(): creating empty collection of messages: %s"% changedMessages)
         messages = self.driver.search() # Would be async.
         stateMessages = self.state.search() # Would be async.
 
