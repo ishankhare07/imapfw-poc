@@ -58,7 +58,7 @@ class StateController(object):
 
     def search(self):
         changedMessages = Messages() # Collection of new, deleted and updated messages.
-        print(changedMessages)
+        print("search(): reating empty collection of messages: %s"% changedMessages)
         messages = self.driver.search() # Would be async.
         stateMessages = self.state.search() # Would be async.
 
@@ -67,7 +67,7 @@ class StateController(object):
                 # Missing in the other side.
                 changedMessages.append(message)
             else:
-                pass # TODO: compare: did message changed?
+                pass # TODO: compare: did message change?
         return changedMessages
 
 
@@ -101,9 +101,12 @@ if __name__ == '__main__':
 
     m4l = Message(None, "4 body") # Not at right.
 
+    leftMessages = Messages([m1l, m2l, m4l])
+    rghtMessages = Messages([m1r, m2r, m3r])
+
     # Fill both sides with pre-existing data.
-    left = Driver([m1l, m2l, m4l]) # Fake those data.
-    right = Driver([m1r, m2r, m3r]) # Fake those data.
+    left = Driver(leftMessages) # Fake those data.
+    right = Driver(rghtMessages) # Fake those data.
 
     # Start engine.
     engine = Engine(left, right)
