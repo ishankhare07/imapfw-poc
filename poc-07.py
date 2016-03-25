@@ -2,6 +2,8 @@
 #
 # https://github.com/OfflineIMAP/imapfw/wiki/sync-07
 #
+# HINT 01: the output of the run is wrong. Read it carefully.
+
 
 from functools import total_ordering
 from collections import UserList
