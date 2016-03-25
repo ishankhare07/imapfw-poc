@@ -35,10 +35,7 @@ class Message(object):
 class Messages(UserList):
     """Enable collections of messages the easy way."""
     def __init__(self, collection=None):
-        if not collection:
-            self.data = []
-        else:
-            self.data = collection
+        self.data = collection or []
 
 
 class Driver(object):
